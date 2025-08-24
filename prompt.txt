@@ -1,0 +1,242 @@
+# Prompt Professionnel - Développement d'Applications flutter Connectées pour Travailleurs Algériens
+
+## 🎯 Contexte du Projet
+
+Développer deux applications mobiles interconnectées pour faciliter la mise en relation entre utilisateurs et travailleurs en Algérie :
+- **Application Utilisateurs** : Recherche gratuite de travailleurs qualifiés
+- **Application Travailleurs** : Plateforme d'inscription payante avec période d'essai gratuite
+## Liste des services:
+  plumbing('Plomberie', '🔧'),
+  electricity('Électricité', '⚡'),
+  cleaning('Nettoyage', '🧽'),
+  delivery('Livraison', '📦'),
+  painting('Peinture', '🎨'),
+  appliance_repair('Réparation électroménager', '🔨'),
+  masonry('Maçonnerie', '🧱'),
+  air_conditioning('Climatisation', '❄️'),
+  babysitting('Baby-sitting', '👶'),
+  private_lessons('Cours particuliers', '📚');
+
+## 💰 Modèle Économique
+
+**Abonnements Travailleurs :**
+- 3 premiers mois : **GRATUITS**
+- Abonnement mensuel : **1 000 DA**
+- Abonnement annuel : **10 000 DA**
+- Utilisateurs : **Accès 100% gratuit**
+
+## 🏗️ Architecture Technique
+
+### Principes de Développement
+- **SOLID Principles** obligatoires
+- **Architecture abstraite** avec interfaces pour découpler les classes
+- **Code maintenable** et extensible
+- **Pattern Repository** pour la gestion des données
+- **Dependency Injection** pour l'inversion de contrôle
+
+### Backend & Infrastructure
+- **Firebase** unique partagée entre les deux applications
+- Synchronisation temps réel des données
+- **Système de notifications push** (Firebase Cloud Messaging)
+- **Fonctionnement en arrière-plan** permanent
+- **Base de données Firestore** pour la persistance
+- **Firebase Authentication** pour la gestion des comptes
+- **Firebase Storage** pour les fichiers médias
+
+### Cartographie
+- **Alternative gratuite à Google Maps** (OpenStreetMap)
+- Géolocalisation en temps réel
+- Affichage dynamique des travailleurs actifs
+
+## 📱 Spécifications Application Utilisateurs
+
+### Structure de Navigation
+**7 Écrans principaux :**
+1. **Splash Screen** (commune aux deux apps)
+2. **Authentification** (Login/Register)
+3. **Home** (Écran d'accueil)
+4. **Recherche** (Carte interactive)
+5. **Demande** (Création de requêtes)
+6. **Chat** (Messagerie intégrée)
+7. **Paramètres** (Configuration utilisateur)
+
+### Fonctionnalités Détaillées
+
+#### 🔐 Authentification
+- **Inscription simplifiée** : nom d'utilisateur + numéro de téléphone
+- **Vérification OTP** obligatoire
+- **Connexion rapide** pour les utilisateurs existants
+
+#### 🏠 Écran Home
+- **Interface attractive** et moderne
+- **Services phares** mis en avant
+- **Statistiques** du réseau de travailleurs
+- **Accès rapide** aux fonctions principales
+- **Témoignages** d'utilisateurs satisfaits
+
+#### 🗺️ Recherche
+- **Carte interactive** avec géolocalisation
+- **Filtres avancés** par métier/compétence
+- **Rayon de recherche** configurable
+- **Fiches détaillées** des travailleurs (rating, expérience, tarifs)
+- **Disponibilité temps réel** des travailleurs
+
+#### 📝 Demande
+- **Formulaire intelligent** de création de requête
+- **Géolocalisation automatique** du lieu d'intervention
+- **Planification temporelle** flexible
+- **Upload média** (photos/vidéos) pour détailler la demande
+- **Estimation budgétaire** automatique
+- **Catégorisation** par type de service
+
+#### 💬 Chat
+- **Messagerie temps réel** avec les travailleurs
+- **Partage de médias** (photos avant/après travaux)
+- **Géolocalisation partagée** pour les rendez-vous
+- **Historique** des conversations
+- **Notifications push** intelligentes
+
+#### ⚙️ Paramètres
+- **Profil utilisateur** complet
+- **Gestion multilingue** (Arabe, Français, anglais)
+- **Préférences de notifications**
+- **Historique des demandes**
+- **Support client** intégré
+- **Conditions d'utilisation**
+
+## 🔧 Spécifications Application Travailleurs
+
+### Structure de Navigation
+**6 Écrans principaux :**
+1. **Splash Screen** (identique app utilisateurs)
+2. **Authentification avancée**
+3. **Home** (Statut d'activité)
+4. **Recherche** (Demandes disponibles)
+5. **Chat** (Communication clients)
+6. **Paramètres** (Gestion profil professionnel)
+
+### Fonctionnalités Spécialisées
+
+#### 🔐 Authentification Renforcée
+**Processus de vérification en 4 étapes :**
+1. **Numéro de téléphone** + vérification OTP
+2. **Scan document d'identité** (recto-verso) : CNI, permis de conduire, ou passeport
+3. **Reconnaissance faciale** par selfie pour vérification d'identité
+4. **Extraction automatique** des données (nom, prénom, date de naissance)
+
+**Sécurité anti-fraude :**
+- **Unicité des documents** : impossible de réutiliser la même pièce d'identité
+- **Détection de documents falsifiés** via IA
+- **Vérification croisée** photo document/selfie
+- **Base de données sécurisée** des documents validés
+
+**Options supplémentaires :**
+- **Upload certificats professionnels** (augmentation rating initial)
+- **Validation diplômes** par organismes compétents
+
+#### 🏠 Écran Home - Gestion Activité
+- **Bouton ON/OFF** pour disponibilité
+- **Statut géolocalisé** (visible sur carte utilisateurs)
+- **Tableau de bord** performance (jobs complétés, rating moyen)
+- **Notifications** demandes pertinentes
+- **Revenus** du mois/semaine
+
+#### 🔍 Recherche Demandes
+- **Carte des demandes** dans le périmètre défini
+- **Filtres par métier** et compétences
+- **Distance et rémunération** affichées
+- **Réponse rapide** aux demandes urgentes
+- **Historique** des candidatures
+
+#### 💬 Chat Professionnel
+- **Interface dédiée** communication client
+- **Envoi de devis** intégré
+- **Photos progression** travaux
+- **Validation étapes** avec signature digitale
+- **Facturation** automatique
+
+#### ⚙️ Paramètres Pro
+- **Profil professionnel** détaillé
+- **Portfolio** photos/vidéos réalisations
+- **Tarification** par service
+- **Gestion abonnement** et facturation
+- **Statistiques détaillées** performance
+
+## 🎨 Design System & UX
+
+### Palette de Couleurs 
+- **Primary Gradient** : #FCCBF0 → #FF5A57 → #E02F75 → #6700A3
+- **Secondary Colors** : #050C38, #1B2062
+- **Accents** : Dégradés dynamiques selon contexte
+
+### Interface Design
+- **Design moderne sans barre de titre** (fullscreen)
+- **Bottom Navigation** avec icônes intuitives
+- **Micro-animations** pour fluidité UX
+- **Dark/Light mode** adaptatif
+- **Glassmorphism effects** pour modernité
+- **Boutons avec états** hover/pressed
+
+### Responsive Design
+- **Adaptation multi-écrans** (smartphones/tablettes)
+- **Orientation portrait/paysage**
+- **Accessibilité** conforme standards WCAG
+
+## 🔗 Intégrations & Synchronisation
+
+### Synchronisation Temps Réel
+- **Statut travailleurs** (actif/inactif) mis à jour instantanément
+- **Géolocalisation live** des travailleurs actifs
+- **Notifications bidirectionnelles** (demandes/réponses)
+- **Chat synchronisé** entre applications
+
+### APIs & Services
+- **Géolocalisation** native (GPS)
+- **Caméra/Galerie** pour uploads
+- **Notifications push** Firebase
+- **Paiements mobile** (CIB, eddahabia)
+- **SMS OTP** pour vérifications
+
+## 📊 Analytics & Monitoring
+
+### Métriques Business
+- **Taux de conversion** demandes→missions
+- **Rating moyen** travailleurs
+- **Temps de réponse** moyen
+- **Chiffre d'affaires** par région
+
+### Performance Technique
+- **Temps de chargement** pages
+- **Taux d'erreur** API
+- **Utilisation mémoire/batterie**
+- **Crashs** et bugs reportés
+
+## 🏢 Structure Projet
+
+```
+/AlgerianWorkers_Project/
+├── /UserApp/
+├── /WorkerApp/
+```
+
+## 🚀 Livrables Attendus
+
+1. **Deux applications mobiles** complètement fonctionnelles
+2. **Backend Firebase** configuré et déployé
+3. **Documentation technique** complète
+4. **Guide d'installation** et déploiement
+5. **Tests unitaires** et d'intégration
+6. **Assets design** (icônes, splash screens)
+7. **Configuration CI/CD** pour déploiements automatisés
+
+## ✅ Critères de Validation
+
+- Applications fonctionnelles **sans simulation/mock**
+- **Synchronisation parfaite** entre les deux apps
+- **Performance fluide** (60fps minimum)
+- **Sécurité renforcée** pour données sensibles
+- **Interface utilisateur intuitive** et moderne
+- **Fonctionnement offline** partiel
+- **Tests complets** sur devices physiques
+
+---
