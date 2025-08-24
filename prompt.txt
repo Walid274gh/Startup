@@ -5,17 +5,10 @@
 Développer deux applications mobiles interconnectées pour faciliter la mise en relation entre utilisateurs et travailleurs en Algérie :
 - **Application Utilisateurs** : Recherche gratuite de travailleurs qualifiés
 - **Application Travailleurs** : Plateforme d'inscription payante avec période d'essai gratuite
-## Liste des services:
-  plumbing('Plomberie', '🔧'),
-  electricity('Électricité', '⚡'),
-  cleaning('Nettoyage', '🧽'),
-  delivery('Livraison', '📦'),
-  painting('Peinture', '🎨'),
-  appliance_repair('Réparation électroménager', '🔨'),
-  masonry('Maçonnerie', '🧱'),
-  air_conditioning('Climatisation', '❄️'),
-  babysitting('Baby-sitting', '👶'),
-  private_lessons('Cours particuliers', '📚');
+
+
+## Liste des travailleurs:
+  ('Plomberie','Électricité','Nettoyage','Livraison','Peinture','Réparation électroménager','Maçonnerie','Climatisation','Cours particuliers')
 
 ## 💰 Modèle Économique
 
@@ -157,9 +150,8 @@ Développer deux applications mobiles interconnectées pour faciliter la mise en
 
 #### ⚙️ Paramètres Pro
 - **Profil professionnel** détaillé
-- **Portfolio** photos/vidéos réalisations
 - **Tarification** par service
-- **Gestion abonnement** et facturation
+- **Gestion abonnement** et facturation avec (baridi mob,carte bancaire,photo de ressut poste)
 - **Statistiques détaillées** performance
 
 ## 🎨 Design System & UX
