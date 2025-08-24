@@ -37,7 +37,7 @@ Développer deux applications mobiles interconnectées pour faciliter la mise en
 - **Firebase Storage** pour les fichiers médias
 
 ### Cartographie
-- **Alternative gratuite à Google Maps** (OpenStreetMap)
+- **OpenStreetMap
 - Géolocalisation en temps réel
 - Affichage dynamique des travailleurs actifs
 
@@ -56,7 +56,7 @@ Développer deux applications mobiles interconnectées pour faciliter la mise en
 ### Fonctionnalités Détaillées
 
 #### 🔐 Authentification
-- **Inscription simplifiée** : nom d'utilisateur + numéro de téléphone
+- **Inscription simplifiée** : nom d'utilisateur +mail(Google) ou numéro de téléphone
 - **Vérification OTP** obligatoire
 - **Connexion rapide** pour les utilisateurs existants
 
@@ -119,7 +119,7 @@ Développer deux applications mobiles interconnectées pour faciliter la mise en
 
 **Sécurité anti-fraude :**
 - **Unicité des documents** : impossible de réutiliser la même pièce d'identité
-- **Détection de documents falsifiés** via IA
+- **Détection de documents falsifiés** 
 - **Vérification croisée** photo document/selfie
 - **Base de données sécurisée** des documents validés
 
@@ -151,7 +151,7 @@ Développer deux applications mobiles interconnectées pour faciliter la mise en
 #### ⚙️ Paramètres Pro
 - **Profil professionnel** détaillé
 - **Tarification** par service
-- **Gestion abonnement** et facturation avec (baridi mob,carte bancaire,photo de ressut poste)
+- **Gestion abonnement** et facturation
 - **Statistiques détaillées** performance
 
 ## 🎨 Design System & UX
