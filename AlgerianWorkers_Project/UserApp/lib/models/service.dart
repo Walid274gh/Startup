@@ -1,10 +1,7 @@
-/// Classe représentant un service disponible dans l'application Khidmeti
+/// Classe représentant un service disponible dans l'application Khidmeti (Utilisateurs)
 /// 
-/// Cette classe est partagée entre l'application utilisateur (Khidmeti) 
-/// et l'application travailleur (Khidmeti-worker)
-/// 
-/// Chaque service possède un identifiant unique, un nom, une icône,
-/// une description et des métadonnées associées.
+/// Cette classe est spécifique à l'application utilisateur et contient
+/// les informations nécessaires pour la recherche et la sélection de services.
 class Service {
   /// Identifiant unique du service (ex: 'plumbing', 'electricity')
   final String id;
@@ -36,14 +33,17 @@ class Service {
   /// Niveau de complexité du service (1-5)
   final int complexityLevel;
   
-  /// Indicateur si le service nécessite des qualifications spéciales
-  final bool requiresCertification;
-  
   /// Prix moyen estimé en DA (Dinars Algériens)
   final double averagePrice;
   
   /// Indicateur si le service est actuellement disponible
   final bool isActive;
+  
+  /// Nombre de travailleurs disponibles pour ce service
+  final int availableWorkersCount;
+  
+  /// Rating moyen des travailleurs pour ce service
+  final double averageRating;
   
   /// Date de création du service dans le système
   final DateTime createdAt;
@@ -63,9 +63,10 @@ class Service {
     required this.descriptionEn,
     required this.category,
     required this.complexityLevel,
-    required this.requiresCertification,
     required this.averagePrice,
     this.isActive = true,
+    this.availableWorkersCount = 0,
+    this.averageRating = 0.0,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -86,9 +87,10 @@ class Service {
         orElse: () => ServiceCategory.other,
       ),
       complexityLevel: json['complexityLevel'] as int,
-      requiresCertification: json['requiresCertification'] as bool,
       averagePrice: (json['averagePrice'] as num).toDouble(),
       isActive: json['isActive'] as bool? ?? true,
+      availableWorkersCount: json['availableWorkersCount'] as int? ?? 0,
+      averageRating: (json['averageRating'] as num?)?.toDouble() ?? 0.0,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
@@ -107,9 +109,10 @@ class Service {
       'descriptionEn': descriptionEn,
       'category': category.toString().split('.').last,
       'complexityLevel': complexityLevel,
-      'requiresCertification': requiresCertification,
       'averagePrice': averagePrice,
       'isActive': isActive,
+      'availableWorkersCount': availableWorkersCount,
+      'averageRating': averageRating,
       'createdAt': createdAt.toIso8601String(),
       'updatedAt': updatedAt.toIso8601String(),
     };
@@ -127,9 +130,10 @@ class Service {
     String? descriptionEn,
     ServiceCategory? category,
     int? complexityLevel,
-    bool? requiresCertification,
     double? averagePrice,
     bool? isActive,
+    int? availableWorkersCount,
+    double? averageRating,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -144,9 +148,10 @@ class Service {
       descriptionEn: descriptionEn ?? this.descriptionEn,
       category: category ?? this.category,
       complexityLevel: complexityLevel ?? this.complexityLevel,
-      requiresCertification: requiresCertification ?? this.requiresCertification,
       averagePrice: averagePrice ?? this.averagePrice,
       isActive: isActive ?? this.isActive,
+      availableWorkersCount: availableWorkersCount ?? this.availableWorkersCount,
+      averageRating: averageRating ?? this.averageRating,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -203,6 +208,20 @@ class Service {
 
   /// Vérification si le service est de niveau intermédiaire (niveau 3)
   bool get isIntermediate => complexityLevel == 3;
+
+  /// Vérification si des travailleurs sont disponibles
+  bool get hasAvailableWorkers => availableWorkersCount > 0;
+
+  /// Vérification si le service a un bon rating
+  bool get hasGoodRating => averageRating >= 4.0;
+
+  /// Obtention du niveau de disponibilité (0-3 étoiles)
+  int get availabilityLevel {
+    if (availableWorkersCount == 0) return 0;
+    if (availableWorkersCount < 5) return 1;
+    if (availableWorkersCount < 15) return 2;
+    return 3;
+  }
 }
 
 /// Énumération des catégories de services
